@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+
+             form 
+             {
+                 max-width: 400px;
+                 margin: 0 auto;
+             }
+             table{
+                width: auto;
+                margin: auto;
+                margin-top: 50px;
+            }
+            .btn{
+                padding: 15px 30px;
+                background-color: teal;
+                border-radius: 50px;
+                text-decoration: none;
+                color: white;
+                border: none;
+            }
+        </style>
+    </head>
+    <body>
+
+        <form action="res" method="post">
+            <h1>Student result</h1>
+
+            <label for>Roll No :-</label>
+            <input type="text" name="rno" id="rollno"><br><br>
+
+            <label for>Student Name:- </label>
+            <input type="text" name="name" id="sname"> <br> <br>
+
+            <label for>subject 1 marks:- </label>
+            <input type="text" name="s1" id="s1"> <br> <br>
+
+            <label for>subject 2 marks:- </label>
+            <input type="text" name="s2" id="s2"> <br> <br>
+
+            <label for>subject 3 marks:- </label>
+            <input type="text" name="s3" id="s3"> <br> <br>
+
+            <label for>subject 4 marks:- </label>
+            <input type="text" name="s4" id="s4"> <br> <br>
+
+            <label for>subject 5 marks:- </label>
+            <input type="text" name="s5" id="s5"> <br> <br>
+
+            <input type="submit" name="submit" id="submit">
+
+        </form>
+
+        <a class="btn" href="/ten">Show top 10</a>
+        <a class="btn" href="/five">Show top 5</a>
+
+        <table border="1">
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Subject 1</th>
+            <th>Subject 2</th>
+            <th>Subject 3</th>
+            <th>Subject 4</th>
+            <th>Subject 5</th>
+            <th>Total</th>
+            <th>Result</th>
+            <th>Delete</th>
+            <th>Update</th>
+
+            <% result.forEach(function(res){%>
+            <tr>
+
+                <td><%= res.rno%></td>
+                <td><%= res.name%></td>
+                <td><%= res.s1%></td>
+                <td><%= res.s2%></td>
+                <td><%= res.s3%></td>
+                <td><%= res.s4%></td>
+                <td><%= res.s5%></td>
+                <td><%= res.total%></td>
+
+                <% var per = res.total/5 %>
+
+                <% if(per<=35) { %>
+                    <td><%= "fail"%></td>
+                <%}else{%>
+                    <td><%= "pass"%></td>
+                <%}%>
+
+                <td><a href="/delete/<%= res.rno%>">Delete</a></td>
+                <td><a href="/update/<%= res.rno%>">Edit</a></td>
+
+            </tr>
+            <% }) %>
+        </table>
+
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <% result.forEach(function(res){%>
+
+        <form action="/up" method="post">
+
+            <h1>Student result Update</h1>
+
+            <label for>Roll No :-</label>
+            <input type="text" name="rno" value="<%=res.rno%>" id="rollno"><br><br>
+
+            <label for>Student Name:- </label>
+            <input type="text" name="name" value="<%=res.name%>" id="sname"> <br> <br>
+
+            <label for>subject 1 marks:- </label>
+            <input type="text" name="s1" value="<%=res.s1%>" id="s1"> <br> <br>
+
+            <label for>subject 2 marks:- </label>
+            <input type="text" name="s2" value="<%=res.s2%>" id="s2"> <br> <br>
+
+            <label for>subject 3 marks:- </label>
+            <input type="text" name="s3" value="<%=res.s3%>" id="s3"> <br> <br>
+
+            <label for>subject 4 marks:- </label>
+            <input type="text" name="s4" value="<%=res.s4%>" id="s4"> <br> <br>
+
+            <label for>subject 5 marks:- </label>
+            <input type="text" name="s5" value="<%=res.s5%>" id="s5"> <br> <br>
+
+            <input type="submit" name="submit" value="update" id="update">
+
+        </form>
+            <%})%>
+
+    </body>
+</html>
